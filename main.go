@@ -29,7 +29,7 @@ func (s Mahasiswa) printData() {
 	fmt.Println("Alasan :", s.Alasan)
 }
 
-func searchStudent(noAbsen string) {
+func cariMahasiswa(noAbsen string) {
 
 	var temp int
 
@@ -52,5 +52,5 @@ func main() {
 
 	input := os.Args[1]
 
-	searchStudent(input)
+	cariMahasiswa(input)
 }
