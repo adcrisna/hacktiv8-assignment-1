@@ -3,133 +3,54 @@ package main
 import (
 	"fmt"
 	"os"
+	"strconv"
 )
 
-type Biodata struct {
+type Student struct {
+	NoAbsen   int
 	Nama      string
 	Alamat    string
 	Pekerjaan string
 	Alasan    string
 }
 
-func main() {
-	cariData()
+var students = []Student{
+	{NoAbsen: 1, Nama: "Muhamad Ade Crisna", Alamat: "Cirebon", Pekerjaan: "Back-End Engineer I", Alasan: "Begitu Syulitt"},
+	{NoAbsen: 2, Nama: "Nurul R", Alamat: "Jakarta", Pekerjaan: "FrontEnd", Alasan: "Belajar Golang"},
+	{NoAbsen: 3, Nama: "Nadya P", Alamat: "Bekasi", Pekerjaan: "UI/UX", Alasan: "Apa Lagi Golang"},
+	{NoAbsen: 4, Nama: "Putri G", Alamat: "Surabaya", Pekerjaan: "Quality Assurance", Alasan: "Iyakah Dik?"},
+	{NoAbsen: 5, Nama: "Reyhan Begitu Syulitt", Alamat: "Jakarta", Pekerjaan: "System Analist", Alasan: "Ya Ndak Tau Ko Tanya Saya"},
 }
 
-func cariData() {
-	data := os.Args[1]
+func (s Student) printData() {
+	fmt.Println("Nama :", s.Nama)
+	fmt.Println("Alamat :", s.Alamat)
+	fmt.Println("Pekerjaan :", s.Pekerjaan)
+	fmt.Println("Alasan :", s.Alasan)
+}
 
-	if data == "1" {
-		b := Biodata{
-			Nama:      "Muhamad Ade Crisna",
-			Alamat:    "Kesambi, Kota Cirebon",
-			Pekerjaan: "Mahasiswa",
-			Alasan:    "Menambah Skill Dalam Menjadi Seorang Back-End Developer",
+func searchStudent(noAbsen string) {
+
+	var temp int
+
+	absen, _ := strconv.Atoi(noAbsen)
+
+	for index, value := range students {
+		if absen == value.NoAbsen {
+			temp = index + 1
 		}
-		fmt.Println("Nama :", b.Nama)
-		fmt.Println("Alamat :", b.Alamat)
-		fmt.Println("Pekerjaan :", b.Pekerjaan)
-		fmt.Println("Alasan :", b.Alasan)
-	} else if data == "2" {
-		b := Biodata{
-			Nama:      "Arfan Maulana",
-			Alamat:    "Kesambi, Kota Cirebon",
-			Pekerjaan: "Staff Administrasi",
-			Alasan:    "Ingin Menjadi Golang Developer",
-		}
-		fmt.Println("Nama :", b.Nama)
-		fmt.Println("Alamat :", b.Alamat)
-		fmt.Println("Pekerjaan :", b.Pekerjaan)
-		fmt.Println("Alasan :", b.Alasan)
-	} else if data == "3" {
-		b := Biodata{
-			Nama:      "Alex Martin",
-			Alamat:    "Pekalipan, Kota Cirebon",
-			Pekerjaan: "Staff Gudang",
-			Alasan:    "Ingin Menjadi Back-end Developer",
-		}
-		fmt.Println("Nama :", b.Nama)
-		fmt.Println("Alamat :", b.Alamat)
-		fmt.Println("Pekerjaan :", b.Pekerjaan)
-		fmt.Println("Alasan :", b.Alasan)
-	} else if data == "4" {
-		b := Biodata{
-			Nama:      "Iqbal Pratama",
-			Alamat:    "Ciledug, Kabupaten Cirebon",
-			Pekerjaan: "Staff Gudang",
-			Alasan:    "Ingin Menjadi Back-end Developer",
-		}
-		fmt.Println("Nama :", b.Nama)
-		fmt.Println("Alamat :", b.Alamat)
-		fmt.Println("Pekerjaan :", b.Pekerjaan)
-		fmt.Println("Alasan :", b.Alasan)
-	} else if data == "5" {
-		b := Biodata{
-			Nama:      "Selvi Felyanti",
-			Alamat:    "Harjamukti, Kota Cirebon",
-			Pekerjaan: "Staff Marketing",
-			Alasan:    "Ingin Menjadi Back-end Developer",
-		}
-		fmt.Println("Nama :", b.Nama)
-		fmt.Println("Alamat :", b.Alamat)
-		fmt.Println("Pekerjaan :", b.Pekerjaan)
-		fmt.Println("Alasan :", b.Alasan)
-	} else if data == "6" {
-		b := Biodata{
-			Nama:      "Afifah Nur",
-			Alamat:    "Harjamukti, Kota Cirebon",
-			Pekerjaan: "Sales",
-			Alasan:    "Ingin Menjadi Back-end Developer",
-		}
-		fmt.Println("Nama :", b.Nama)
-		fmt.Println("Alamat :", b.Alamat)
-		fmt.Println("Pekerjaan :", b.Pekerjaan)
-		fmt.Println("Alasan :", b.Alasan)
-	} else if data == "7" {
-		b := Biodata{
-			Nama:      "Nurul Rahayu",
-			Alamat:    "Ciperna, Kabupaten Cirebon",
-			Pekerjaan: "Mahasiswa",
-			Alasan:    "Ingin Menjadi Back-end Developer",
-		}
-		fmt.Println("Nama :", b.Nama)
-		fmt.Println("Alamat :", b.Alamat)
-		fmt.Println("Pekerjaan :", b.Pekerjaan)
-		fmt.Println("Alasan :", b.Alasan)
-	} else if data == "8" {
-		b := Biodata{
-			Nama:      "Reyhan Maulana",
-			Alamat:    "Harjamukti, Kota Cirebon",
-			Pekerjaan: "Content Creater",
-			Alasan:    "Ingin Menjadi Back-end Developer",
-		}
-		fmt.Println("Nama :", b.Nama)
-		fmt.Println("Alamat :", b.Alamat)
-		fmt.Println("Pekerjaan :", b.Pekerjaan)
-		fmt.Println("Alasan :", b.Alasan)
-	} else if data == "9" {
-		b := Biodata{
-			Nama:      "Rivaldo Kusuma",
-			Alamat:    "Pekalipan Kota Cirebon",
-			Pekerjaan: "PNS",
-			Alasan:    "Ingin Menjadi Back-end Developer",
-		}
-		fmt.Println("Nama :", b.Nama)
-		fmt.Println("Alamat :", b.Alamat)
-		fmt.Println("Pekerjaan :", b.Pekerjaan)
-		fmt.Println("Alasan :", b.Alasan)
-	} else if data == "10" {
-		b := Biodata{
-			Nama:      "Wahyu Setiawan",
-			Alamat:    "Perum, Kota Cirebon",
-			Pekerjaan: "UI/UX Design",
-			Alasan:    "Ingin Belajar Menjadi Back-end Developer",
-		}
-		fmt.Println("Nama :", b.Nama)
-		fmt.Println("Alamat :", b.Alamat)
-		fmt.Println("Pekerjaan :", b.Pekerjaan)
-		fmt.Println("Alasan :", b.Alasan)
-	} else {
-		fmt.Println("Data Yang Anda Cari Tidak Ada!!")
 	}
+
+	if temp > 0 {
+		students[temp-1].printData()
+	} else {
+		fmt.Println("Data tidak ditemukan")
+	}
+}
+
+func main() {
+
+	input := os.Args[1]
+
+	searchStudent(input)
 }
