@@ -6,7 +6,7 @@ import (
 	"strconv"
 )
 
-type Student struct {
+type Mahasiswa struct {
 	NoAbsen   int
 	Nama      string
 	Alamat    string
@@ -14,7 +14,7 @@ type Student struct {
 	Alasan    string
 }
 
-var students = []Student{
+var mhs = []Mahasiswa{
 	{NoAbsen: 1, Nama: "Muhamad Ade Crisna", Alamat: "Cirebon", Pekerjaan: "Back-End Engineer I", Alasan: "Begitu Syulitt"},
 	{NoAbsen: 2, Nama: "Nurul R", Alamat: "Jakarta", Pekerjaan: "FrontEnd", Alasan: "Belajar Golang"},
 	{NoAbsen: 3, Nama: "Nadya P", Alamat: "Bekasi", Pekerjaan: "UI/UX", Alasan: "Apa Lagi Golang"},
@@ -22,7 +22,7 @@ var students = []Student{
 	{NoAbsen: 5, Nama: "Reyhan Begitu Syulitt", Alamat: "Jakarta", Pekerjaan: "System Analist", Alasan: "Ya Ndak Tau Ko Tanya Saya"},
 }
 
-func (s Student) printData() {
+func (s Mahasiswa) printData() {
 	fmt.Println("Nama :", s.Nama)
 	fmt.Println("Alamat :", s.Alamat)
 	fmt.Println("Pekerjaan :", s.Pekerjaan)
@@ -35,16 +35,16 @@ func searchStudent(noAbsen string) {
 
 	absen, _ := strconv.Atoi(noAbsen)
 
-	for index, value := range students {
+	for index, value := range mhs {
 		if absen == value.NoAbsen {
 			temp = index + 1
 		}
 	}
 
 	if temp > 0 {
-		students[temp-1].printData()
+		mhs[temp-1].printData()
 	} else {
-		fmt.Println("Data tidak ditemukan")
+		fmt.Println("Data tidak ada")
 	}
 }
 
